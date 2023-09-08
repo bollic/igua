@@ -77,8 +77,10 @@ function mapClick(e) {
 }
 */
 const renderPosts = async (term) => {
-  
-let uri = 'http://localhost:4000/posts?_sort=likes&_order=desc';
+
+//fetch('https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/posts');
+ 
+let uri = 'https://cors-anywhere.herokuapp.com/http://localhost:4000/posts?_sort=likes&_order=desc';
   if (term) {
     uri += `&q=${term}`
   }
