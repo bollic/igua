@@ -79,8 +79,8 @@ function mapClick(e) {
 const renderPosts = async (term) => {
 
 //fetch('https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/posts');
- 
-let uri = 'https://cors-anywhere.herokuapp.com/http://localhost:4000/posts?_sort=likes&_order=desc';
+ //https://wild-gray-beaver-robe.cyclic.cloud
+let uri = 'https://cors-anywhere.herokuapp.com/https://wild-gray-beaver-robe.cyclic.cloud/posts?_sort=likes&_order=desc';
   if (term) {
     uri += `&q=${term}`
   }
