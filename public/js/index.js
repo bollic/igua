@@ -80,7 +80,7 @@ const renderPosts = async (term) => {
 
 //fetch('https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/posts');
  //https://wild-gray-beaver-robe.cyclic.cloud
-let uri = 'https://cors-anywhere.herokuapp.com/https://wild-gray-beaver-robe.cyclic.cloud/posts?_sort=likes&_order=desc';
+let uri = 'https://wild-gray-beaver-robe.cyclic.cloud/posts?_sort=likes&_order=desc';
   if (term) {
     uri += `&q=${term}`
   }
