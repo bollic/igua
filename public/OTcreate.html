@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+ <!-- Leaflet CSS -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+ <!-- Leaflet JS -->
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  
+  <link rel="stylesheet" href="styles.css">
+  <title>Iguana - messages</title>
+</head>
+<body>
+  <div class="header">  
+    <h1>Ajouter un message</h1>
+  </div>
+  <div class="head"> 
+    <div id="box1">1<input type="image" name="profile" title="dendrobate-agrave-tapirer.jpg" alt="img" src="dendrobate-agrave-tapirer.jpg" /></div> 
+    <div id="box2"><input type="image" name="profile" data-title="reptile.jpg" alt="img" src="reptile.jpg" /></div> 
+    <div id="box3"><input type="image" name="profile" data-title="dendrobate-agrave-tapirer.jpg" alt="img" src="dendrobate-agrave-tapirer.jpg" /></div> 
+ </div>
+
+ 
+  <form>
+    <input type="text" name="title" placeholder="Blog title">
+    <select id="category" placeholder="Content...">
+      <option value="content">Content</option>
+      <option value="moyen">Moyen</option>
+      <option value="pascontent">Pas content</option>    
+    </select>..et pour cause..
+    <select id="cause" placeholder="clé...">
+      <option value="chaud">Il fait chaud</option>
+      <option value="frais">Il fait frais</option>
+      <option value="Sentiments">Sentiments, amour and Co.</option>
+      <option value="argent">Questions d'argent</option>
+      <option value="santé">Santé</option>
+    </select>
+    
+    <input type="date" name="date"  >
+   
+<input type="button" onclick="ccountRabbits()" value="Count rabbits!"></input>
+
+    <h2 id="h2">?</h2><h1 id="h1">Hello from the script!</h1>
+    
+   
+    
+    <textarea name="body"  placeholder="Blog body"></textarea>
+    <div class="content">
+        Latitude Selectionée: <span id="latitudeSelectionee"></span>&deg;<br />
+    Longitude Selectionée: <span id="longitudeSelectionee"></span>&deg;<br />
+     
+      <div id="map"></div><button>Create</button>
+  </div>
+
+  </form>
+  <div>
+ </div>
+  <script src="js/create.js"></script>
+</body>
+</html>

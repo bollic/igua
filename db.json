@@ -1,0 +1,60 @@
+{
+  "posts": [
+    {
+      "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "category": "pascontent",
+      "cause": "chaud",
+      "body": "aaaaaaaaaaaaaaaaaaaaaa",
+      "date": "2023-09-07",
+      "profile": "img/dendrobate-agrave-tapirer.jpg",
+      "latitudeSelectionee": "43.40527958921717",
+      "longitudeSelectionee": "1.075115203857422",
+      "likes": 0,
+      "id": 1
+    },
+    {
+      "title": "bbbbbbbbbbbb",
+      "category": "moyen",
+      "cause": "Sentiments",
+      "body": "bbbbbbbbbbbbbbbbbbbbbb",
+      "date": "2023-09-07",
+      "profile": "img/reptile.jpg",
+      "latitudeSelectionee": "43.34128913533546",
+      "longitudeSelectionee": "1.338787078857422",
+      "likes": 0,
+      "id": 2
+    },
+    {
+      "title": "ccccccccccccccc",
+      "category": "moyen",
+      "cause": "argent",
+      "body": "cccccccccccccccc",
+      "date": "2023-09-07",
+      "profile": "img/dendrobate-agrave-tapirer.jpg",
+      "latitudeSelectionee": "44.12841663321246",
+      "longitudeSelectionee": "3.4371757507324223",
+      "likes": 0,
+      "id": 3
+    },
+    {
+      "title": "four",
+      "category": "moyen",
+      "cause": "Sentiments",
+      "body": "four gchgvh",
+      "date": "2023-09-08",
+      "profile": "img/dendrobate-agrave-tapirer.jpg",
+      "latitudeSelectionee": "41.09319809789227",
+      "longitudeSelectionee": "1.1967775225639345",
+      "likes": 0,
+      "id": 4
+    }
+  ],
+  "polls": [
+    {
+      "id": 1,
+      "question": "Do you prefer Vue or React?",
+      "answerA": "Vue",
+      "answerB": "React"
+    }
+  ]
+}

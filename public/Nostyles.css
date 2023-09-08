@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* base styles */
+
+body,html {
+  margin: 10px;
+	height:100%;
+	width:100%;
+}
+#map {
+  margin: 15px; /* outer padding */
+	height: 95%;
+}
+
+body {
+	display: grid;
+	grid-template-rows: 120px 1fr 50px;
+	grid-template-columns: 200px 1fr;
+	grid-template-areas: 
+	"header header"
+	"sidebar content"
+	"footer footer";
+}
+.header {
+  
+	grid-area: header;
+
+  padding: 6px 10px 30px 10px;
+	background-color: rgb(230, 76, 171);
+  border: 10px solid rgb(243, 189, 234);
+  border-radius: 35px;
+	color: white;
+	font-size: 1em;
+  font-family: Roboto;
+  max-width: 700px;
+}
+.header a {
+  color: #36cca2;
+  margin: 95px;
+  text-align:center;
+}
+.content {
+	grid-area: content;
+  background-color: rgb(202, 200, 202);
+  border: 20px solid rgb(8, 8, 8);
+  border-radius: 35px;
+	color: white;
+  border-radius: 35px;
+  max-width: 500px;
+  max-height: 500px;
+  margin: 10px; /* outer padding */
+  
+}
+
+.footer {
+	grid-area: footer;
+	padding:10px;
+	background-color: rgb(175, 175, 175);
+}
+
+.sidebar-item {
+  padding: 10px; /* adds inner padding */
+  background: rgb(99, 214, 235); /* background color */
+  border-radius: 35px;
+
+  border: 7px solid rgb(185, 237, 247); /* border width, style, and color */
+  margin: 5px; /* outer padding */
+}
+
+form {
+  max-width: 500px;
+}
+input, textarea {
+  display: block;
+  margin: 16px 0;
+  padding: 6px 10px;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-family: 'Roboto';
+}
+
+textarea {
+  max-height:70px;
+}
+
+/* post list */
+.post {
+  padding: 16px;
+  background: rgb(238, 125, 200);
+  border-radius: 10px;
+  margin: 20px 0;
+}
+.post h2 {
+  margin: 0;
+}
+.post p {
+  margin-top: 0;
+}
+.post a {
+  color: #36cca2;
+}

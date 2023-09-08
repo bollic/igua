@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, 
+  initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="styles.css">
+
+<title>Flying messages..</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  
+  <div class="head">  
+   <div class="box1">
+   <img src="img/plage.png" />
+ </div>
+  <div><a href="create.html">Ajouter un message</a></div> 
+ <div><button id="get-marker">
+  Get Markers
+</button> 
+</div>
+
+
+  </div>
+  
+    <form class="search">
+
+    <div > <input type="text" class="form-control" placeholder="search..." name="term">
+ </div> 
+    <div ><button class="btn btn-default">
+          <span class="glyphicon glyphicon-search"></span></button>
+    </div></form>
+
+<div class="head"> 
+   <div >Profile</div> 
+   <div >Titre</div>
+   <div >Role</div>
+</div>
+     <div class="head" id="map"> </div>
+ <div class="sidebar">  
+    
+      <div class="sidebar-item"> <nav></nav>
+    <!-- inject blogs here from js -->  
+    	</div> 
+</div>
+
+
+<p>
+  Latitude Selectionée: <span id="latitudeSelectionee"></span>&deg;<br />
+  Longitude Selectionée: <span id="longitudeSelectionee"></span>&deg;
+</p>
+
+  <script src="js/index.js"></script>
+</body>
+</html>
