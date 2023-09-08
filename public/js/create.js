@@ -78,8 +78,8 @@ e.preventDefault();
   }
 
  // h2.innerHTML = t;
-
-  await fetch('http://localhost:4000/posts', {
+//https://app.cyclic.sh/#/app/bollic-igua/builds/
+  await fetch('https://wild-gray-beaver-robe.cyclic.cloud/posts', {
     method: 'POST',
     body: JSON.stringify(doc),
     headers: { 'Content-Type': 'application/json' }
