@@ -1,10 +1,9 @@
 // server.js
 const jsonServer = require("json-server");
-const server = jsonServer.create();
-const router = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults()
-const port = process.env.PORT||4000
+// Import the library:
+const cors = require('cors');
 
+const server = jsonServer.create();
 const cors = require('cors');
 server.use(cors({
    
@@ -13,6 +12,11 @@ server.use(cors({
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
     credentials: true
 }))
+const router = jsonServer.router("db.json");
+const middlewares = jsonServer.defaults()
+const port = process.env.PORT||4000
+
+
 
 
 server.use(middlewares)
