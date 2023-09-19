@@ -4,7 +4,7 @@ const jsonServer = require("json-server");
 const cors = require('cors');
 
 const server = jsonServer.create();
-const cors = require('cors');
+
 server.use(cors({
    
     origin:  ['localhost:4000', 'https://wild-gray-beaver-robe.cyclic.cloud'], // use your actual domain name (or localhost), using * is not recommended
