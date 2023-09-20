@@ -1,7 +1,7 @@
 // server.js
 const express = require("express");
 // Import the library:
-const cors = require('cors');
+//const cors = require('cors');
 
 //const server = jsonServer.create();
 const server = express();
@@ -21,6 +21,10 @@ server.use(cors({
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
     credentials: true
 }))*/
+
+server.get("/json", (req, res) => {
+   res.json({ message: "Hello world" });
+});
 const router = express.Router("db.json");
 const middlewares = jsonServer.defaults()
 const port = process.env.PORT||4000
