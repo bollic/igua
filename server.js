@@ -6,6 +6,7 @@ const jsonServer = require("json-server");
 
 const server = jsonServer.create();
 const middlewares = jsonServer.defaults()
+const port = process.env.PORT||4000
 //const server = express();
 /*
 server.use((req, res, next) => {
@@ -28,8 +29,6 @@ server.get("/json", (req, res) => {
    res.json({ message: "Hello world" });
 });*/
 //const router = express.Router("db.json");
-
-const port = process.env.PORT||4000
 
 const router = jsonServer.router("db.json");
 
