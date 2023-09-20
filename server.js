@@ -20,7 +20,7 @@ server.use(cors({
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
     credentials: true
 }))*/
-const router = jsonServer.router("db.json");
+const router = express.router("db.json");
 const middlewares = jsonServer.defaults()
 const port = process.env.PORT||4000
 
