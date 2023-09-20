@@ -8,7 +8,8 @@ const middlewares = jsonServer.defaults()
 const port = process.env.PORT||4000
 
 // Set up a domainList and check against it:
-const domainList = ['*','localhost:4000', 'https://wild-gray-beaver-robe.cyclic.cloud']
+const domainList = ['*']
+                    //'localhost:4000', 'https://wild-gray-beaver-robe.cyclic.cloud']
 
 
 const corsOptions = {
