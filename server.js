@@ -28,7 +28,6 @@ server.get("/json", (req, res) => {
    res.json({ message: "Hello world" });
 });*/
 //const router = express.Router("db.json");
-const router = jsonServer.router("db.json");
 
 const port = process.env.PORT||4000
 
