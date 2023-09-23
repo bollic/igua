@@ -81,6 +81,7 @@ e.preventDefault();
 //https://app.cyclic.sh/#/app/bollic-igua/builds/
   await fetch('http://localhost:4000/posts', {
     method: 'POST',
+    mode: "cors", // no-cors, *cors, same-origin
     body: JSON.stringify(doc),
     headers: { 'Content-Type': 'application/json' }
   })
