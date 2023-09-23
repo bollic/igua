@@ -79,7 +79,7 @@ e.preventDefault();
 
  // h2.innerHTML = t;
 //https://app.cyclic.sh/#/app/bollic-igua/builds/
-  await fetch('http://localhost:4000/posts', {
+  await fetch('https://wild-gray-beaver-robe.cyclic.cloud/posts', {
     method: 'POST',
     mode: "cors", // no-cors, *cors, same-origin
     body: JSON.stringify(doc),
