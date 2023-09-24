@@ -4,7 +4,7 @@ const container = document.querySelector('.details');
 const deleteBtn = document.querySelector('.delete');
 
 const renderDetails = async () => {
-  const res = await fetch('https://wild-gray-beaver-robe.cyclic.cloud/posts/' + id);
+  const res = await fetch('https://my-json-server.typicode.com/bollic/iguaa/posts/' + id);
   if (!res.ok) {
 
     window.location.replace('/');
