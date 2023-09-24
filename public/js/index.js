@@ -81,7 +81,8 @@ const renderPosts = async (term) => {
 
 //fetch('https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/posts');
  //https://wild-gray-beaver-robe.cyclic.cloud
-let uri = 'https://github.com/bollic/iguaa/blob/main/db.json';
+// my-json-server.typicode.com/user/repo/posts/1
+let uri = 'https://my-json-server.typicode.com/posts';
 //https://wild-gray-beaver-robe.cyclic.cloud/posts?_sort=likes&_order=desc
 // https://github.com/bollic/iguaa/blob/main/db.json
   if (term) {
