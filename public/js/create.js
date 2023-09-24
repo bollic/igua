@@ -80,7 +80,8 @@ e.preventDefault();
  // h2.innerHTML = t;
 //https://app.cyclic.sh/#/app/bollic-igua/builds/
 //  https://wild-gray-beaver-robe.cyclic.cloud/posts
-  https://my-json-server.typicode.com/bollic/iguaa/posts?_sort=title&_order=asc
+  //http://libriecopertine.altervista.org/
+  //https://my-json-server.typicode.com/bollic/iguaa/posts?_sort=title&_order=asc
   await fetch('https://my-json-server.typicode.com/bollic/iguaa/posts', {
     method: 'POST',
   //  mode: "cors", // no-cors, *cors, same-origin
