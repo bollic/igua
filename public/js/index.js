@@ -82,9 +82,9 @@ const renderPosts = async (term) => {
 //fetch('https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/posts');
  //https://wild-gray-beaver-robe.cyclic.cloud
 // my-json-server.typicode.com/user/repo/posts/1
-let uri = 'http://libriecopertine.altervista.org/posts';
+//let uri = 'http://libriecopertine.altervista.org/db.json';
 // https://my-json-server.typicode.com/bollic/iguaa/posts
-//https://wild-gray-beaver-robe.cyclic.cloud/posts?_sort=likes&_order=desc
+https://wild-gray-beaver-robe.cyclic.cloud/posts?_sort=likes&_order=desc
 // https://github.com/bollic/iguaa/blob/main/db.json
   if (term) {
     uri += `&q=${term}`
