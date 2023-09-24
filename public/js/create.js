@@ -82,7 +82,7 @@ e.preventDefault();
 //  https://wild-gray-beaver-robe.cyclic.cloud/posts
   //http://libriecopertine.altervista.org/
   //https://my-json-server.typicode.com/bollic/iguaa/posts?_sort=title&_order=asc
-  await fetch('https://my-json-server.typicode.com/bollic/iguaa/posts', {
+  await fetch('http://libriecopertine.altervista.org/db.json', {
     method: 'POST',
   //  mode: "cors", // no-cors, *cors, same-origin
     body: JSON.stringify(doc),
