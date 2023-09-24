@@ -14,6 +14,7 @@ var myIcon1 = L.icon({
   iconAnchor: [10, 41],
   popupAnchor: [2, -40], 
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png'
+ 
 });
 
 // Icons2
@@ -80,7 +81,9 @@ const renderPosts = async (term) => {
 
 //fetch('https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/posts');
  //https://wild-gray-beaver-robe.cyclic.cloud
-let uri = 'https://wild-gray-beaver-robe.cyclic.cloud/posts?_sort=likes&_order=desc';
+let uri = 'https://github.com/bollic/iguaa/blob/main/db.json';
+//https://wild-gray-beaver-robe.cyclic.cloud/posts?_sort=likes&_order=desc
+// https://github.com/bollic/iguaa/blob/main/db.json
   if (term) {
     uri += `&q=${term}`
   }
