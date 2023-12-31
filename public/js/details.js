@@ -22,7 +22,7 @@ const renderDetails = async () => {
 }
 
 deleteBtn.addEventListener('click', async () => {
-  const res = await fetch('https://wild-gray-beaver-robe.cyclic.cloud/posts/' + id, {
+  const res = await fetch('http://localhost:4000/posts/' + id, {
     method: 'DELETE'
   });
  window.location.replace("/");
