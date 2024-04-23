@@ -84,8 +84,8 @@ const renderPosts = async (term) => {
 // my-json-server.typicode.com/user/repo/posts/1
 //let uri = 'http://libriecopertine.altervista.org/db.json';
 //let uri =  https://my-json-server.typicode.com/bollic/iguaa/posts
- // https://average-cape-pig.cyclic.cloud
-let uri = 'https://average-cape-pig.cyclic.app/posts';
+ // https://average-cape-pig.cyclic.app/posts
+let uri = 'https://localhost:4000/posts';
 //let uri =  https://github.com/bollic/iguaa/blob/main/db.json
   if (term) {
     uri += `&q=${term}`
