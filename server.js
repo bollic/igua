@@ -5,6 +5,13 @@ const server = jsonServer.create();
 const middlewares = jsonServer.defaults()
 const port = process.env.PORT||4000
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();
+  });
+/*
 const cors = require('cors');
 server.use(cors({
  //  https://average-cape-pig.cyclic.app/
@@ -12,7 +19,7 @@ server.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
    credentials: true
-}))
+}))*/
 const router = jsonServer.router("db.json");
 
 server.use(middlewares)
