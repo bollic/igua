@@ -81,7 +81,7 @@ e.preventDefault();
 //https://app.cyclic.sh/#/app/bollic-igua/builds/
 // https://average-cape-pig.cyclic.app/posts
   //https://my-json-server.typicode.com/bollic/iguaa/posts?_sort=title&_order=asc
-  await fetch('https://localhost:4000/posts', {
+  await fetch('http://localhost:4000/posts', {
     method: 'POST',
     mode: "cors", // no-cors, *cors, same-origin
     body: JSON.stringify(doc),
