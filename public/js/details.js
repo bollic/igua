@@ -5,7 +5,7 @@ const deleteBtn = document.querySelector('.delete');
 
 const renderDetails = async () => {
 
-  const res = await fetch('https://average-cape-pig.cyclic.app/posts/' + id);
+  const res = await fetch('https://igua.onrender.com/posts/' + id);
   if (!res.ok) {
 
     window.location.replace('/');
@@ -22,7 +22,7 @@ const renderDetails = async () => {
 }
 
 deleteBtn.addEventListener('click', async () => {
-  const res = await fetch('https://average-cape-pig.cyclic.app/posts/' + id, {
+  const res = await fetch('https://igua.onrender.com/posts/' + id, {
     method: 'DELETE'
   });
  window.location.replace("/");
