@@ -28,7 +28,7 @@ body {
 .sidebar {
   width: 100%;
   height: 80%;
-  border: 1px solid red;
+ 
   margin:  auto;
 }
 
@@ -79,7 +79,13 @@ body {
 .sidebar-item {
   display: flex;
   justify-content: space-between;
+
+  margin-top: 10px;
+  color: white;
+  text-decoration: none;
+  background: #f4474f;
   padding: 10px;
+  border-radius: 45px;
 }
 
 nav {
@@ -93,7 +99,14 @@ nav h1 {
 nav a {
   color: white;
   text-decoration: none;
-  background: #36cca2;
+  background: #4fac91;
+  padding: 10px;
+  border-radius: 10px;
+}
+.details {
+  color: white;
+  text-decoration: none;
+  background: #f4474f;
   padding: 10px;
   border-radius: 10px;
 }
@@ -115,7 +128,7 @@ textarea {
 /* post list */
 .post {
   padding: 16px;
-  background: rgb(209, 80, 80);
+   background: rgb(209, 80, 80);
   border-radius: 10px;
   margin: 20px 0;
 }
