@@ -80,7 +80,6 @@ function mapClick(e) {
 const renderPosts = async (term) => {
 
 //fetch('https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/posts');
- //https://wild-gray-beaver-robe.cyclic.cloud
 // my-json-server.typicode.com/user/repo/posts/1
 //let uri = 'http://libriecopertine.altervista.org/db.json';
 //let uri =  https://my-json-server.typicode.com/bollic/iguaa/posts
