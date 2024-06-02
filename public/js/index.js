@@ -6,7 +6,7 @@ let buttonMarker = document.getElementById("get-marker");
 let moyenFiltered = document.getElementById("get-moyen");
 let button2Filtered = document.getElementById("get-filter2");
 async function afficherFilms() {
-  apiUrl = 'http://localhost:3001/posts?_sort=id&_order=desc';
+  apiUrl = 'http://igua.onrender.com/posts?_sort=id&_order=desc';
   /*if (term) {
     apiUrl += `&q=${term}`
   }*/
@@ -54,8 +54,8 @@ afficherFilms()
 // Specify the API endpoint for user data
 
 button2Filtered.addEventListener("click", function() {
-  apiUrl = 'http://localhost:3001/posts';
-  const URL = "http://localhost:3001/posts";
+  apiUrl = 'http://igua.onrender.com/posts';
+  const URL = "http://igua.onrender.com/posts";
   let template = '';
 //const sidebar = document.getElementByClass("sidebar");
 sidebar.innerHTML = "<p>Loading...";
