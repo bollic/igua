@@ -18,7 +18,7 @@ const jsonServer = require("json-server");
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults()
-const port = process.env.PORT||3001
+const port = process.env.PORT||10000
 /*server.all('/', (req, res) => {
   req.headers['origin'] || req.get('Origin')
   console.log(['origin'])
