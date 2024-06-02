@@ -54,8 +54,8 @@ afficherFilms()
 // Specify the API endpoint for user data
 
 button2Filtered.addEventListener("click", function() {
-  apiUrl = 'http://igua.onrender.com/posts';
-  const URL = "http://igua.onrender.com/posts";
+  apiUrl = 'https://igua.onrender.com/posts';
+  const URL = "https://igua.onrender.com/posts";
   let template = '';
 //const sidebar = document.getElementByClass("sidebar");
 sidebar.innerHTML = "<p>Loading...";
@@ -146,7 +146,7 @@ const names = posts.filter(post => post.category === "content")
   })
 
 moyenFiltered.addEventListener("click", function() {
-apiUrl = 'http://localhost:3001/posts?category=moyen';
+apiUrl = 'https://igua.onrender.com/posts?category=moyen';
 // Make a GET request using the Fetch API
 fetch(apiUrl)
   .then(response => {
