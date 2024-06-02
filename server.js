@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 
 const mongoose = require('mongoose');
-const Thing = require('./models/Thing');
+//const Thing = require('./models/Thing');
 const cors = require('cors');
 app.set("view engine", "ejs")
 app.use(express.urlencoded({extended: true}))
