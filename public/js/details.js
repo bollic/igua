@@ -1,3 +1,4 @@
+
 // javascript for details.html
 const id = new URLSearchParams(window.location.search).get('id');
 const container = document.querySelector('.details');
@@ -14,14 +15,14 @@ const renderDetails = async () => {
   const post = await res.json();
 
   const template = `
-   
+  
   <div align="center">
                 <img src="${post.profile}" class="h-20 w-20 rounded-full" alt="">
              
  
     <h1>${post.title}</h1>
     <p>${post.body}</p> 
-    </div>  
+    </div>    
   `
 
   container.innerHTML = template;
