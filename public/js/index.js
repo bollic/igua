@@ -38,14 +38,14 @@ const fullUrl = `${apiUrl}?${queryString}`;
                     ${post.title}
                 </div>
                   ${post.date}
-                //${new Date(post.timestamp)}
+               
                 <div class="text-sm text-gray-500">
                     ${post.id}  <a href="details.html?id=${post.id}">Read more</a>
                 </div>          
         </div>
     `
   });
-//      ${new Date(post.timestamp)}
+
   sidebar.innerHTML = template;
  // console.log(piecesFiltrees);
 }
