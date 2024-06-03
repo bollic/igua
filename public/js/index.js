@@ -6,7 +6,7 @@ let buttonMarker = document.getElementById("get-marker");
 let moyenFiltered = document.getElementById("get-moyen");
 let button2Filtered = document.getElementById("get-filter2");
 async function afficherFilms() {
-  apiUrl = 'https://igua.onrender.com/posts?_sort=id&_order=desc';
+  apiUrl = 'https://igua.onrender.com/posts?_sort=id&_order=asc';
   /*if (term) {
     apiUrl += `&q=${term}`
   }*/
