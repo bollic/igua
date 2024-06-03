@@ -31,7 +31,16 @@ body {
  
   margin:  auto;
 }
-
+.button {
+  padding: 6px 10px 30px 10px;
+	background-color: rgb(230, 76, 171);
+  border: 10px solid rgb(243, 189, 234);
+  border-radius: 35px;
+	color: white;
+	font-size: 1em;
+  font-family: Roboto;
+  max-width: 700px;
+}
 .box1 {
   width: 100px;
   height: 100px;
