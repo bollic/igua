@@ -37,7 +37,8 @@ const fullUrl = `${apiUrl}?${queryString}`;
                 <div >
                     ${post.title}
                 </div>
-                ${new Date(post.timestamp)}
+                  ${post.date}
+                //${new Date(post.timestamp)}
                 <div class="text-sm text-gray-500">
                     ${post.id}  <a href="details.html?id=${post.id}">Read more</a>
                 </div>          
