@@ -5,6 +5,30 @@ const searchForm = document.querySelector('.search');
 let buttonMarker = document.getElementById("get-marker");
 let moyenFiltered = document.getElementById("get-moyen");
 let button2Filtered = document.getElementById("get-filter2");
+//elements grafiques de la map
+
+var myIcon1 = L.icon({
+  iconSize: [25, 41],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40], 
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png'
+});
+// Icons2
+var myIcon2 = L.icon({
+  iconSize: [25, 41],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png'
+});
+// Icons2
+var myIcon3 = L.icon({
+  iconSize: [25, 41],
+  iconAnchor: [10, 41],
+  popupAnchor: [2, -40],
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png'
+});
+let map = L.map("map", {center: [43.58039085, 1.454315185546875], zoom: 7});
+ 
 async function afficherFilms() {
   apiUrl = 'https://igua.onrender.com/posts?_sort=id&_order=asc';
   /*if (term) {
@@ -48,6 +72,61 @@ const fullUrl = `${apiUrl}?${queryString}`;
 
   sidebar.innerHTML = template;
  // console.log(piecesFiltrees);
+
+
+ // loop through data
+  let myPolyline2 = L.featureGroup().addTo(map);
+  let myMarker = L.featureGroup().addTo(map);
+posts.forEach(post => {
+ buttonMarker.addEventListener("click", function() {
+  //if (post.category==="pascontent")   
+  var polyline2 = L.polyline(posts.map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+    color: 'red'
+  }).addTo(myPolyline2);
+ 
+ });
+  
+    if (post.category==="content")   
+   
+   var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
+      icon: myIcon2,
+      draggable: true,
+      //bounceOnAdd: true
+    }).addTo(myMarker).bindPopup(post.title) 
+  /*  var polyline = L.polyline([post.latitudeSelectionee, post.longitudeSelectionee], {
+      color: 'magenta',
+      //bounceOnAdd: true
+    }).addTo(map)*/
+    
+    if (post.category === "pascontent") 
+  
+   var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
+      icon: myIcon3,
+      draggable: true,
+    }).addTo(myMarker).bindPopup(post.title);
+     if (post.category === "moyen")
+   var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
+      icon: myIcon1,
+      draggable: true,
+    }).addTo(myMarker).bindPopup(post.title) 
+ 
+
+
+    const featureGroup = L.featureGroup();
+    featureGroup.addTo(map)
+          
+           featureGroup.addLayer(myMarker)
+           featureGroup.addLayer(myPolyline2)
+               
+           map.fitBounds(featureGroup.getBounds());
+   
+    //});  
+   
+   })
+  
+
+
+  
 }
 afficherFilms()
 //async function renderPosts (term, term2) {
@@ -207,3 +286,9 @@ searchForm.addEventListener('submit', async (e) => {
 })
 
 //window.addEventListener('DOMContentLoaded', () => renderPosts());
+
+L.tileLayer(
+  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", 
+  {attribution: '&copy; <a href="http://' + 
+  'www.openstreetmap.org/copyright">OpenStreetMap</a>'}
+).addTo(map);
