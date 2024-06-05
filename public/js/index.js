@@ -1,10 +1,12 @@
 // javascript for index.html
 const sidebar = document.querySelector('.sidebar');
 const searchForm = document.querySelector('.search');
+const chercheForm = document.querySelector('.search');
 
 let buttonMarker = document.getElementById("get-marker");
 let moyenFiltered = document.getElementById("get-moyen");
 let button2Filtered = document.getElementById("get-filter2");
+
 //elements grafiques de la map
 
 var myIcon1 = L.icon({
@@ -30,7 +32,7 @@ var myIcon3 = L.icon({
 let map = L.map("map", {center: [43.58039085, 1.454315185546875], zoom: 7});
  
 async function afficherFilms() {
-  apiUrl = 'https://igua.onrender.com/posts?_sort=id&_order=asc';
+  apiUrl = 'http://localhost:3001/posts?_sort=id&_order=desc';
   /*if (term) {
     apiUrl += `&q=${term}`
   }*/
@@ -61,20 +63,18 @@ const fullUrl = `${apiUrl}?${queryString}`;
                 <div >
                     ${post.title}
                 </div>
-                  ${post.date}
-               
+                ${post.date}
                 <div class="text-sm text-gray-500">
                     ${post.id}  <a href="details.html?id=${post.id}">Read more</a>
                 </div>          
         </div>
     `
   });
-
+//      ${new Date(post.timestamp)}
   sidebar.innerHTML = template;
  // console.log(piecesFiltrees);
-
-
- // loop through data
+ 
+  // loop through data
   let myPolyline2 = L.featureGroup().addTo(map);
   let myMarker = L.featureGroup().addTo(map);
 posts.forEach(post => {
@@ -125,8 +125,6 @@ posts.forEach(post => {
    })
   
 
-
-  
 }
 afficherFilms()
 //async function renderPosts (term, term2) {
@@ -134,8 +132,8 @@ afficherFilms()
 // Specify the API endpoint for user data
 
 button2Filtered.addEventListener("click", function() {
-  apiUrl = 'https://igua.onrender.com/posts';
-  const URL = "https://igua.onrender.com/posts";
+  apiUrl = 'http://localhost:3001/posts';
+  const URL = "http://localhost:3001/posts";
   let template = '';
 //const sidebar = document.getElementByClass("sidebar");
 sidebar.innerHTML = "<p>Loading...";
@@ -226,7 +224,7 @@ const names = posts.filter(post => post.category === "content")
   })
 
 moyenFiltered.addEventListener("click", function() {
-apiUrl = 'https://igua.onrender.com/posts?category=moyen';
+apiUrl = 'http://localhost:3001/posts?category=moyen';
 // Make a GET request using the Fetch API
 fetch(apiUrl)
   .then(response => {
@@ -278,7 +276,48 @@ if (term) {
  
 //la fine del renderpost
 //}
+//SEARCH
 
+chercheForm.addEventListener("click", function() {
+  apiUrl = 'http://localhost:3001/posts?q=NEUF';
+  /*if (term) {
+    uri += `&q=${term}`
+  }*/
+  // Make a GET request using the Fetch API
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(myData => {
+      // Process the retrieved user data
+      let template = '';
+      myData.forEach(post => {
+        // let td = document.createElement('tr');
+      template += `
+         <div class="sidebar-item">
+                 <div class="flex-shrink-0 h-20 w-20">
+                     <img src="${post.profile}" class="h-20 w-20 rounded-full" alt="">
+                 </div>         
+                     <div>
+                         ${post.title}<li>Le moral est ${post.category} - à cause de ${post.cause} </li>
+                     </div>
+                   
+                     <div class="text-sm text-gray-500">
+                         ${post.id}  <a href="details.html?id=${post.id}">Read more</a>
+                     </div>          
+             </div>
+         `
+       });
+       sidebar.innerHTML = template;
+      console.log('User Data:', myData);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    })
+  })
 // search
 searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
