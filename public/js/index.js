@@ -32,7 +32,7 @@ var myIcon3 = L.icon({
 let map = L.map("map", {center: [43.58039085, 1.454315185546875], zoom: 7});
  
 async function afficherFilms() {
-  apiUrl = 'http://localhost:3001/posts?_sort=id&_order=desc';
+  apiUrl = 'https://igua.onrender.com/posts?_sort=id&_order=desc';
   /*if (term) {
     apiUrl += `&q=${term}`
   }*/
