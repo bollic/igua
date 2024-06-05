@@ -2,7 +2,7 @@
   "posts": [
     {
       "title": "UN",
-      "category": "content",
+      "category": "pas content",
       "cause": "sentiments",
       "body": "UNnnnnnnn",
       "date": "2023-09-07",      
@@ -14,7 +14,7 @@
     },
     {
       "title": "DEUX",
-      "category": "content",
+      "category": "pas content",
       "cause": "argent",
       "body": "DEUXXXXX",
       "date": "2023-10-07",      
@@ -50,7 +50,7 @@
     },
     {
       "title": "CINQ",
-      "category": "content",
+      "category": "pas content",
       "cause": "argent",
       "body": "CINQ bbbvEE",
       "date": "2024-01-07",
