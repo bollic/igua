@@ -2,6 +2,7 @@
 const sidebar = document.querySelector('.sidebar');
 const searchForm = document.querySelector('.search');
 const chercheForm = document.querySelector('.search');
+let lineMarker = document.getElementById("get-polyline");
 
 let buttonMarker = document.getElementById("get-marker");
 let moyenFiltered = document.getElementById("get-moyen");
@@ -9,21 +10,21 @@ let button2Filtered = document.getElementById("get-filter2");
 
 //elements grafiques de la map
 
-var myIcon1 = L.icon({
+var myIconGrey = L.icon({
   iconSize: [25, 41],
   iconAnchor: [10, 41],
   popupAnchor: [2, -40], 
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png'
 });
 // Icons2
-var myIcon2 = L.icon({
+var myIconBlue = L.icon({
   iconSize: [25, 41],
   iconAnchor: [10, 41],
   popupAnchor: [2, -40],
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png'
 });
 // Icons2
-var myIcon3 = L.icon({
+var myIconRed = L.icon({
   iconSize: [25, 41],
   iconAnchor: [10, 41],
   popupAnchor: [2, -40],
@@ -32,6 +33,7 @@ var myIcon3 = L.icon({
 let map = L.map("map", {center: [43.58039085, 1.454315185546875], zoom: 7});
  
 async function afficherFilms() {
+  //  https://igua.onrender.com/posts?_sort=id&_order=desc
   apiUrl = 'https://igua.onrender.com/posts?_sort=id&_order=desc';
   /*if (term) {
     apiUrl += `&q=${term}`
@@ -78,38 +80,49 @@ const fullUrl = `${apiUrl}?${queryString}`;
   let myPolyline2 = L.featureGroup().addTo(map);
   let myMarker = L.featureGroup().addTo(map);
 posts.forEach(post => {
- buttonMarker.addEventListener("click", function() {
+  
+  buttonMarker.addEventListener("click", function() {
   //if (post.category==="pascontent")   
-  var polyline2 = L.polyline(posts.map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+  var polyline2 = L.polygon(posts.filter(post => post.category === "content").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+    color: 'blue'
+  }).addTo(myPolyline2);
+  var polyline2 = L.polygon(posts.filter(post => post.category === "moyen").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+    color: 'grey'
+  }).addTo(myPolyline2);
+  var polyline2 = L.polygon(posts.filter(post => post.category === "pascontent").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
     color: 'red'
   }).addTo(myPolyline2);
- 
- });
+});
+lineMarker.addEventListener("click", function() {
+  //if (post.category==="pascontent")   
+  var polyline2 = L.polyline(posts.filter(post => post.category === "content").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+    color: 'blue'
+  }).addTo(myPolyline2);
+  var polyline2 = L.polyline(posts.filter(post => post.category === "moyen").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+    color: 'grey'
+  }).addTo(myPolyline2);
+  var polyline2 = L.polyline(posts.filter(post => post.category === "pascontent").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+    color: 'red'
+  }).addTo(myPolyline2);
+});
+ // if (post.category === "content") 
   
-    if (post.category==="content")   
-   
-   var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
-      icon: myIcon2,
-      draggable: true,
-      //bounceOnAdd: true
-    }).addTo(myMarker).bindPopup(post.title) 
-  /*  var polyline = L.polyline([post.latitudeSelectionee, post.longitudeSelectionee], {
-      color: 'magenta',
-      //bounceOnAdd: true
-    }).addTo(map)*/
-    
-    if (post.category === "pascontent") 
+    var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
+       icon: myIconBlue,
+       draggable: true,
+     }).addTo(myMarker).bindPopup(post.title);
+
+     if (post.category === "pascontent") 
+      var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
+         icon: myIconRed,
+         draggable: true,
+       }).addTo(myMarker).bindPopup(post.title);
   
-   var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
-      icon: myIcon3,
-      draggable: true,
-    }).addTo(myMarker).bindPopup(post.title);
-     if (post.category === "moyen")
-   var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
-      icon: myIcon1,
-      draggable: true,
-    }).addTo(myMarker).bindPopup(post.title) 
- 
+   else if (post.category === "moyen")
+  var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
+     icon: myIconGrey,
+     draggable: true,
+   }).addTo(myMarker).bindPopup(post.title) 
 
 
     const featureGroup = L.featureGroup();
@@ -132,7 +145,7 @@ afficherFilms()
 // Specify the API endpoint for user data
 
 button2Filtered.addEventListener("click", function() {
-  apiUrl = 'https://igua.onrender.com/posts';
+ // apiUrl = 'http://localhost:3001/posts';
   const URL = "https://igua.onrender.com/posts";
   let template = '';
 //const sidebar = document.getElementByClass("sidebar");
