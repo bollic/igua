@@ -2,7 +2,7 @@
   "posts": [
     {
       "title": "UN",
-      "category": "pas content",
+      "category": "pascontent",
       "cause": "sentiments",
       "body": "UNnnnnnnn",
       "date": "2023-09-07",      
@@ -14,7 +14,7 @@
     },
     {
       "title": "DEUX",
-      "category": "pas content",
+      "category": "content",
       "cause": "argent",
       "body": "DEUXXXXX",
       "date": "2023-10-07",      
@@ -38,7 +38,7 @@
     },
     {
       "title": "QUATRE",
-      "category": "moyen",
+      "category": "content",
       "cause": "chaud",
       "body": "QUATRRRRRRR",
       "date": "2023-12-07",      
@@ -50,7 +50,7 @@
     },
     {
       "title": "CINQ",
-      "category": "pas content",
+      "category": "content",
       "cause": "argent",
       "body": "CINQ bbbvEE",
       "date": "2024-01-07",
@@ -62,7 +62,7 @@
     },
     {
       "title": "SIX",
-      "category": "moyen",
+      "category": "pascontent",
       "cause": "argent",
       "body": "SIX bbbvEE",
       "date": "2024-02-07",
@@ -86,7 +86,7 @@
     },
     {
       "title": "HUIT",
-      "category": "pas content",
+      "category": "pascontent",
       "cause": "argent",
       "body": "HUIT bbbvEE",
       "date": "2024-03-07",
@@ -134,7 +134,7 @@
     },
     {
       "title": "DOUZE",
-      "category": "content",
+      "category": "pascontent",
       "cause": "Sentiments",
       "body": "DOUZEEEEEEEEEE GVHG",
       "date": "2024-07-07",
