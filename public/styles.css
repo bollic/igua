@@ -15,7 +15,7 @@ html, body {
 body {
   background: #eee;
   font-family: 'Roboto';
-  color: black;
+  color: black ;
   max-width: 500px;
   margin: 10px auto;
   padding: 10px;
@@ -28,11 +28,10 @@ body {
 .sidebar {
   width: 100%;
   height: 80%;
- 
+  
   margin:  auto;
-}
-
-.button {
+ }
+ .button {
   padding: 6px 8px 10px 5px;
 	background-color: rgb(230, 76, 171);
   border: 4px solid rgb(243, 189, 234);
@@ -76,7 +75,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  margin:  auto;
+
   width: 100%;
 }
 .search {
@@ -88,14 +87,14 @@ body {
 }
 .sidebar-item {
   display: flex;
-  justify-content: space-between;
-
+  justify-content:space-around; 
+ 
   margin-top: 10px;
   color: white;
   text-decoration: none;
   background: #f4474f;
-  padding: 10px;
-  border-radius: 45px;
+  padding: 5px;
+  border-radius: 40px;
 }
 
 nav {
@@ -138,7 +137,7 @@ textarea {
 /* post list */
 .post {
   padding: 16px;
-   background: rgb(209, 80, 80);
+  background: rgb(209, 80, 80);
   border-radius: 10px;
   margin: 20px 0;
 }
@@ -154,3 +153,4 @@ textarea {
 
 
 /* hambu */
+
