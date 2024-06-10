@@ -31,13 +31,14 @@ body {
  
   margin:  auto;
 }
+
 .button {
-  padding: 6px 10px 30px 10px;
+  padding: 6px 8px 10px 5px;
 	background-color: rgb(230, 76, 171);
-  border: 10px solid rgb(243, 189, 234);
+  border: 4px solid rgb(243, 189, 234);
   border-radius: 35px;
 	color: white;
-	font-size: 1em;
+	font-size: 0.7em;
   font-family: Roboto;
   max-width: 700px;
 }
