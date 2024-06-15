@@ -31,15 +31,15 @@ body {
   
   margin:  auto;
  }
- .button {
+.button {
   padding: 6px 8px 10px 5px;
-	background-color: rgb(230, 76, 171);
-  border: 4px solid rgb(243, 189, 234);
-  border-radius: 35px;
-	color: white;
+	background-color: rgb(250, 248, 249);
+  border: 2px solid rgb(74, 74, 74);
+  border-radius: 25px;
+	color: rgb(7, 6, 6);
 	font-size: 0.7em;
   font-family: Roboto;
-  max-width: 700px;
+  margin: 3px;
 }
 .box1 {
   width: 100px;
