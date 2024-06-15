@@ -37,7 +37,7 @@ let myPolyline2 = L.featureGroup().addTo(map);
 let myMarker = L.featureGroup().addTo(map);
 async function afficherFilms() {
   //  https://igua.onrender.com/posts?_sort=id&_order=desc
-  apiUrl = 'http://localhost:3001/posts?_sort=id&_order=desc';
+  apiUrl = 'https://igua.onrender.com/posts?_sort=id&_order=desc';
   /*if (term) {
     apiUrl += `&q=${term}`
   }*/
@@ -83,7 +83,7 @@ const fullUrl = `${apiUrl}?${queryString}`;
  /*fetch("http://localhost:3001/posts?_sort=id&_order=desc")
 .then((response) => response.json())
 .then((json) => console.log(json));*/
-fetch("http://localhost:3001/posts?_sort=id&_order=desc")
+fetch("https://igua.onrender.com/posts?_sort=id&_order=desc")
 .then((response) => response.json())
 .then((json) => console.log(json));
 
@@ -281,7 +281,7 @@ if (term) {
 
 
 chercheForm.addEventListener("click", function() {
-  apiUrl = 'http://localhost:3001/posts';
+  apiUrl = 'https://igua.onrender.com/posts';
   /*if (term) {
     uri += `&q=${term}`
   }*/
