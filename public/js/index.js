@@ -37,7 +37,7 @@ let myPolyline2 = L.featureGroup().addTo(map);
 let myMarker = L.featureGroup().addTo(map);
 async function afficherFilms() {
   //  https://igua.onrender.com/posts?_sort=id&_order=desc
-  apiUrl = 'https://igua.onrender.com/posts?_sort=id&_order=desc';
+  apiUrl = 'http://localhost:3001/posts?_sort=id&_order=desc';
   /*if (term) {
     apiUrl += `&q=${term}`
   }*/
@@ -83,7 +83,7 @@ const fullUrl = `${apiUrl}?${queryString}`;
  /*fetch("http://localhost:3001/posts?_sort=id&_order=desc")
 .then((response) => response.json())
 .then((json) => console.log(json));*/
-fetch("https://igua.onrender.com/posts?_sort=id&_order=desc")
+fetch("http://localhost:3001/posts?_sort=id&_order=desc")
 .then((response) => response.json())
 .then((json) => console.log(json));
 
@@ -94,26 +94,28 @@ fetch("https://igua.onrender.com/posts?_sort=id&_order=desc")
 posts.forEach(post => {
   
   buttonMarker.addEventListener("click", function() {
+    myPolyline2.clearLayers();
   //if (post.category==="pascontent")   
-  var polyline2 = L.polygon(posts.filter(post => post.category === "content").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+  var polyline2 = L.polygon(posts.filter(post => post.category === "bon").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
     color: 'blue'
   }).addTo(myPolyline2);
   var polyline2 = L.polygon(posts.filter(post => post.category === "moyen").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
     color: 'grey'
   }).addTo(myPolyline2);
-  var polyline2 = L.polygon(posts.filter(post => post.category === "pascontent").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+  var polyline2 = L.polygon(posts.filter(post => post.category === "bas").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
     color: 'red'
   }).addTo(myPolyline2);
 });
 lineMarker.addEventListener("click", function() {
-  //if (post.category==="pascontent")   
-  var polyline2 = L.polyline(posts.filter(post => post.category === "content").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+  //if (post.category==="pascontent") 
+  myPolyline2.clearLayers();  
+  var polyline2 = L.polyline(posts.filter(post => post.category === "bon").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
     color: 'blue'
   }).addTo(myPolyline2);
   var polyline2 = L.polyline(posts.filter(post => post.category === "moyen").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
     color: 'grey'
   }).addTo(myPolyline2);
-  var polyline2 = L.polyline(posts.filter(post => post.category === "pascontent").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+  var polyline2 = L.polyline(posts.filter(post => post.category === "bas").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
     color: 'red'
   }).addTo(myPolyline2);
 });
@@ -124,7 +126,7 @@ lineMarker.addEventListener("click", function() {
        draggable: true,
      }).addTo(myMarker).bindPopup(post.title);
 
-     if (post.category === "pascontent") 
+     if (post.category === "bas") 
       var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
          icon: myIconRed,
          draggable: true,
@@ -162,11 +164,11 @@ fetch(URL)
   sidebar.innerHTML = getListOfNames(posts));
 
 const getListOfNames = (posts) => {
-  var polyline2 = L.polygon(posts.filter(post => post.category === "content").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+  var polyline2 = L.polygon(posts.filter(post => post.category === "bon").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
     color: 'blue'
   }).addTo(myPolyline2);
   
-const names = posts.filter(post => post.category === "content") 
+const names = posts.filter(post => post.category === "bon") 
 .map((post) => ` <div class="sidebar-item">
 <div class="flex-shrink-0 h-20 w-20">
     <img src="${post.profile}" class="h-20 w-20 rounded-full" alt="">
@@ -236,10 +238,10 @@ pascontentFiltered.addEventListener("click", function() {
     sidebar.innerHTML = getListOfNames(posts));
   
   const getListOfNames = (posts) => {
-    var polyline2 = L.polygon(posts.filter(post => post.category === "pascontent").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+    var polyline2 = L.polygon(posts.filter(post => post.category === "bas").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
       color: 'red'
     }).addTo(myPolyline2);
-    var marker = L.polygon(posts.filter(post => post.category === "pascontent").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
+    var marker = L.polygon(posts.filter(post => post.category === "bas").map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), {
       color: 'red'
     }).addTo(myMarker);
    // if (post.category === "pascontent") 
@@ -255,7 +257,7 @@ featureGroup.addTo(map)
        featureGroup.addLayer(myPolyline2)
            
        map.fitBounds(featureGroup.getBounds());
-  const names = posts.filter(post => post.category === "pascontent") 
+  const names = posts.filter(post => post.category === "bas") 
   .map((post) => ` <div class="sidebar-item">
   <div class="flex-shrink-0 h-20 w-20">
       <img src="${post.profile}" class="h-20 w-20 rounded-full" alt="">
@@ -281,7 +283,7 @@ if (term) {
 
 
 chercheForm.addEventListener("click", function() {
-  apiUrl = 'https://igua.onrender.com/posts';
+  apiUrl = 'http://localhost:3001/posts';
   /*if (term) {
     uri += `&q=${term}`
   }*/
