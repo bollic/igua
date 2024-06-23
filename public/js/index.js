@@ -12,7 +12,7 @@ let moyenFiltered = document.getElementById("get-moyen");
 let contentFiltered = document.getElementById("get-content");
 let pascontentFiltered = document.getElementById("get-pascontent");
 //let moyenFiltered = document.getElementById("get-content");
-const URL = "http://localhost:3001/posts";
+const URL = "https://igua.onrender.com/posts";
 //elements grafiques de la map
 
 var myIconGrey = L.icon({
@@ -56,7 +56,7 @@ const items = list.querySelector('.sidebar-item');
 
 const renderPosts = async (term) => {
   //  apiUrl = 'https://igua.onrender.com/posts?_sort=id&_order=desc';
-  let uri = 'http://localhost:3001/posts?_sort=likes&_order=desc';
+  let uri = 'https://igua.onrender.com/posts?_sort=likes&_order=desc';
   if (term) {
     uri += `&q=${term}`
   }
@@ -227,7 +227,7 @@ pascontentFiltered.addEventListener("click", async function() {
            icon: myIconRed,
            draggable: true,
          }).addTo(myMarker).bindPopup(post.title);*/
-      // var layerGroup = L.layerGroup([polyline3]);
+      // var layerGroup = L.layerGroup([polyline3]);3
        //  layerGroup.addLayer(polyline3);
  /* const featureGroup = L.featureGroup();
   featureGroup.addTo(map)
