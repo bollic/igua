@@ -55,7 +55,7 @@ const list = document.querySelector('.sidebar');
 const items = list.querySelector('.sidebar-item');
 
 const renderPosts = async (term) => {
-  //  apiUrl = 'https://igua.onrender.com/posts?_sort=id&_order=desc';
+  // https://igua.onrender.com
   let uri = 'https://igua.onrender.com/posts?_sort=likes&_order=desc';
   if (term) {
     uri += `&q=${term}`
@@ -64,25 +64,10 @@ const renderPosts = async (term) => {
   const res = await fetch(uri);
   const posts = await res.json();
  
-  posts.forEach(post => {
-  var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
-    icon: myIconBlue,
-    draggable: true,
-  }).addTo(myMarker).bindPopup(post.title);
 
-  if (posts.category === "bas") 
-   var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
-      icon: myIconRed,
-      draggable: true,
-    }).addTo(myMarker).bindPopup(post.title);
-
-else if (posts.category === "moyen")
-var marker = new L.marker([post.latitudeSelectionee, post.longitudeSelectionee], {
-  icon: myIconGrey,
-  draggable: true,
-}).addTo(myMarker).bindPopup(post.title) 
+  
   // console.log(posts);
-})
+  
   let template = ''; 
  for (let post of posts) {
     template += `
@@ -227,7 +212,7 @@ pascontentFiltered.addEventListener("click", async function() {
            icon: myIconRed,
            draggable: true,
          }).addTo(myMarker).bindPopup(post.title);*/
-      // var layerGroup = L.layerGroup([polyline3]);3
+      // var layerGroup = L.layerGroup([polyline3]);
        //  layerGroup.addLayer(polyline3);
  /* const featureGroup = L.featureGroup();
   featureGroup.addTo(map)
