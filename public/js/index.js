@@ -42,8 +42,8 @@ L.tileLayer(
 ).addTo(map);
 // Fonction pour afficher les publications et les ajouter sur la carte
 const renderPosts = async (term) => {
-  // let uri = 'https://igua.onrender.com/posts?_sort=likes&_order=desc';
-  let uri = 'http://localhost:3001/posts?_sort=likes&_order=desc';
+  let uri = 'https://igua.onrender.com/posts?_sort=likes&_order=desc';
+ // let uri = 'http://localhost:3001/posts?_sort=likes&_order=desc';
   if (term) {
       uri += `&q=${term}`;
   }
