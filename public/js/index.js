@@ -3,7 +3,7 @@
 //const URL = "http://localhost:3001/posts";
 const sidebar = document.querySelector('.sidebar');
 const searchForm = document.querySelector('.search');
-const allLines = document.getElementById("get-polyline");
+const allMarkerLine = document.getElementById("get-polyline");
 const allMarker = document.getElementById("get-marker");
 const moyenFiltered = document.getElementById("get-moyen");
 const contentFiltered = document.getElementById("get-content");
@@ -43,7 +43,7 @@ L.tileLayer(
 // Fonction pour afficher les publications et les ajouter sur la carte
 const renderPosts = async (term) => {
   let uri = 'https://igua.onrender.com/posts?_sort=likes&_order=desc';
- // let uri = 'http://localhost:3001/posts?_sort=likes&_order=desc';
+  //let uri = 'http://localhost:3001/posts?_sort=likes&_order=desc';
   if (term) {
       uri += `&q=${term}`;
   }
@@ -81,7 +81,7 @@ const renderPosts = async (term) => {
   // Add new layers based on the filtered posts
   const addLayers = (posts, color, icon) => {
       const latlngs = posts.map(post => [post.latitudeSelectionee, post.longitudeSelectionee]);
-      const polyline = L.polygon(latlngs, { color });
+      const polyline = L.polyline(latlngs, { color });
       layerGroup.addLayer(polyline);
 
       posts.forEach(post => {
@@ -98,6 +98,24 @@ const renderPosts = async (term) => {
   filteredPosts.forEach(post => {
       addLayers([post], colors[post.category], icons[post.category]);
   });
+   // Clear existing layers
+   layerGroup.clearLayers();
+    // Add new layers based on the filtered posts
+  const addLine = (posts, color, icon) => {
+    const latlngs = posts.map(post => [post.latitudeSelectionee, post.longitudeSelectionee]);
+    const addLine = L.polyline(latlngs, { color });
+    layerGroup.addLayer(addLine);
+
+    posts.forEach(post => {
+        const marker = L.marker([post.latitudeSelectionee, post.longitudeSelectionee], { icon });
+        layerGroup.addLayer(marker);
+    });
+    layerGroup.addTo(map);
+};
+
+filteredPosts.forEach(post => {
+  addLine([post], colors[post.category], icons[post.category]);
+});
 };
 
 // Événement pour le formulaire de recherche
@@ -169,6 +187,35 @@ const getAllNames = (posts, likes, color, icon) => {
   return `<ul>${names}</ul>`;
 };
 
+const getAll = (posts, likes, color, icon) => {
+  const notFilteredPosts = posts.filter(post => post.likes === likes);
+ 
+  const maxcut = L.polyline(notFilteredPosts.map(post => [post.latitudeSelectionee, post.longitudeSelectionee]), { color });
+   layerGroup.addLayer(maxcut);
+  //layerGroup.getBounds();
+  //map.fitBounds(layerGroup.getBounds()); 
+  notFilteredPosts.forEach(post => {
+    const toutMarker = L.marker([post.latitudeSelectionee, post.longitudeSelectionee], { icon });
+    layerGroup.addLayer(toutMarker);
+    //marker.fitBounds(layerGroup.getBounds(marker)); 
+  });
+
+ 
+  const names = notFilteredPosts.map(post => `
+    <div class="sidebar-item">
+      <div class="flex-shrink-0 h-20 w-20">
+        <img src="${post.profile}" class="h-20 w-20 rounded-full" alt="">
+      </div>
+      <div>${post.title}<li>Le moral est ${post.category} - à cause de ${post.cause}</li></div>
+      <div class="text-sm text-gray-500">
+        ${post.id}  <a href="details.html?id=${post.id}">Read more</a>
+      </div>
+    </div>
+  `).join('');
+
+  return `<ul>${names}</ul>`;
+};
+
 contentFiltered.addEventListener("click", async () => {
   layerGroup.clearLayers();
   sidebar.innerHTML = "<p>Loading...</p>";
@@ -191,11 +238,17 @@ pascontentFiltered.addEventListener("click", async () => {
   sidebar.innerHTML = getListOfNames(posts, "bas", 'red', myIconRed);
 });
 
+allMarkerLine.addEventListener("click", async () => {
+  layerGroup.clearLayers();
+  const res = await fetch(URL);
+  const posts = await res.json();
+  sidebar.innerHTML = getAll(posts, 0, 'black', myIconRed);
+});
 allMarker.addEventListener("click", async () => {
   layerGroup.clearLayers();
   const res = await fetch(URL);
   const posts = await res.json();
-  sidebar.innerHTML = getAllNames(posts, 0, 'orange', myIconRed);
+  sidebar.innerHTML = getAllNames(posts, 0, 'black', myIconRed);
 });
 
 searchForm.addEventListener('submit', async (e) => {
