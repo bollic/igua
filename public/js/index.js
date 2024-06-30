@@ -1,5 +1,5 @@
 // JavaScript for index.html
-const URL = "http://localhost:3001/posts";
+const URL = "https://igua.onrender.com/posts";
 const sidebar = document.querySelector('.sidebar');
 const searchForm = document.querySelector('.search');
 const allMarkerLine = document.getElementById("get-polyline");
@@ -41,7 +41,7 @@ L.tileLayer(
 
 // Fonction pour afficher les publications et les ajouter sur la carte
 const renderPosts = async (term) => {
-  let uri = 'http://localhost:3001/posts?_sort=date&_order=asc';
+  let uri = 'https://igua.onrender.com/posts?_sort=date&_order=asc';
   if (term) {
     uri += `&q=${term}`;
   }
