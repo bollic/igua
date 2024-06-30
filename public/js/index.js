@@ -1,5 +1,5 @@
 // JavaScript for index.html
-const URL = "https://igua.onrender.com/posts";
+const URL = "http://localhost:3001/posts";
 const sidebar = document.querySelector('.sidebar');
 const searchForm = document.querySelector('.search');
 const allMarkerLine = document.getElementById("get-polyline");
@@ -9,6 +9,8 @@ const contentFiltered = document.getElementById("get-content");
 const pascontentFiltered = document.getElementById("get-pascontent");
 let map = L.map("map", { center: [43.2, 1.30], zoom: 7 });
 let layerGroup = L.featureGroup().addTo(map);
+
+// Marker
 
 const myIconGrey = L.icon({
   iconSize: [25, 41],
@@ -39,7 +41,7 @@ L.tileLayer(
 
 // Fonction pour afficher les publications et les ajouter sur la carte
 const renderPosts = async (term) => {
-  let uri = 'https://igua.onrender.com/posts?_sort=likes&_order=desc';
+  let uri = 'http://localhost:3001/posts?_sort=date&_order=asc';
   if (term) {
     uri += `&q=${term}`;
   }
@@ -75,16 +77,20 @@ const renderPosts = async (term) => {
   layerGroup.clearLayers();
 
   // Add new layers based on the filtered posts
-  const addLayers = (posts, color, icon) => {
+  const addLayers = (posts, color, icon, popup) => {
     const latlngs = posts.map(post => [post.latitudeSelectionee, post.longitudeSelectionee]);
     const polyline = L.polyline(latlngs, { color });
     layerGroup.addLayer(polyline);
 
     posts.forEach(post => {
-      const marker = L.marker([post.latitudeSelectionee, post.longitudeSelectionee], { icon });
-      layerGroup.addLayer(marker);
+      var singleMarker = L.marker([post.latitudeSelectionee, post.longitudeSelectionee], { icon, draggable: true});
+      var popup = singleMarker.bindPopup("<br><STRONG>"+ post.title+"</STRONG></br><div class='flex-shrink-0 h-20 w-20'><img class='h-20 w-20 rounded-full' alt='' src="+ post.profile + "></div>" +singleMarker.getLatLng()).openPopup()
+      popup.addTo(map);
+   
+      layerGroup.addLayer(singleMarker);
+
     });
-    // layerGroup.addTo(map); // No need to add to map here
+    
   };
 
   // Use appropriate icon and color based on category
@@ -116,13 +122,26 @@ const getListOfNames = (posts, category, color, icon) => {
   layerGroup.addLayer(polyline);
 
   filteredPosts.forEach(post => {
+    var singleMarker = L.marker([post.latitudeSelectionee, post.longitudeSelectionee], { icon, draggable: true});
+   
+    var popup = 
+      singleMarker.bindPopup(
+        "<br><STRONG>"+ post.title+"</STRONG></br><div class='flex-shrink-0 h-20 w-20'><img class='h-20 w-20 rounded-full' alt='' src="+ post.profile + "></div>" +singleMarker.getLatLng()).openPopup()
+     
+      //var popup = singleMarker.bindPopup("This is <br><STRONG>"+ post.title+"</STRONG></br>" +singleMarker.getLatLng()).openPopup()
+    //  popup.addTo(map);
+   
+    var popup = singleMarker.bindPopup("<br><STRONG>"+ post.title+"</STRONG></br><div class='flex-shrink-0 h-20 w-20'><img class='h-20 w-20 rounded-full' alt='' src="+ post.profile + "></div>" +singleMarker.getLatLng()).openPopup()
+     
+    popup.addTo(map);
     const marker = L.marker([post.latitudeSelectionee, post.longitudeSelectionee], { icon });
-    layerGroup.addLayer(marker);
+    layerGroup.addLayer(singleMarker);
   });
 
   // Adjust map to fit bounds of all layers
   if (layerGroup.getLayers().length > 0) {
     map.fitBounds(layerGroup.getBounds());
+    
   }
 
   const names = filteredPosts.map(post => `
@@ -147,13 +166,18 @@ const getAllNames = (posts, likes, color, icon) => {
   layerGroup.addLayer(polygon);
 
   notFilteredPosts.forEach(post => {
-    const toutMarker = L.marker([post.latitudeSelectionee, post.longitudeSelectionee], { icon });
-    layerGroup.addLayer(toutMarker);
+    const Marker = L.marker([post.latitudeSelectionee, post.longitudeSelectionee], { icon });
+   
+    //var popup = toutMarker.bindPopup("<br><STRONG>"+ post.category+"</STRONG></br><div class='flex-shrink-0 h-20 w-20'><img class='h-20 w-20 rounded-full' alt='' src="+ post.profile + "></div>" +toutMarker.getLatLng()).openPopup()
+     
+  // popup.addTo(map);
+    layerGroup.addLayer(Marker);
   });
 
   // Adjust map to fit bounds of all layers
   if (layerGroup.getLayers().length > 0) {
     map.fitBounds(layerGroup.getBounds());
+    
   }
 
   const names = notFilteredPosts.map(post => `
@@ -178,8 +202,12 @@ const getAll = (posts, likes, color, icon) => {
   layerGroup.addLayer(maxcut);
 
   notFilteredPosts.forEach(post => {
-    const toutMarker = L.marker([post.latitudeSelectionee, post.longitudeSelectionee], { icon });
-    layerGroup.addLayer(toutMarker);
+    const zigzagMarker = L.marker([post.latitudeSelectionee, post.longitudeSelectionee], { icon });
+    var popup = zigzagMarker.bindPopup("<br><STRONG>"+ post.title+"</STRONG></br><div class='flex-shrink-0 h-20 w-20'><img class='h-20 w-20 rounded-full' alt='' src="+ post.profile + "></div>" +zigzagMarker.getLatLng()).openPopup()
+    popup.addTo(map);
+ 
+   
+    layerGroup.addLayer(zigzagMarker);
   });
 
   // Adjust map to fit bounds of all layers
