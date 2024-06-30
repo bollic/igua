@@ -1,5 +1,5 @@
 // JavaScript for index.html
-const URL = "https://igua.onrender.com/posts";
+const URL = "http://igua.onrender.com/posts";
 const sidebar = document.querySelector('.sidebar');
 const searchForm = document.querySelector('.search');
 const allMarkerLine = document.getElementById("get-polyline");
