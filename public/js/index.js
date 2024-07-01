@@ -36,8 +36,8 @@ const myIconRed = L.icon({
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",  {
 /*  preload: true,
-   maxZoom: 19,
-    formatData: "webp",*/
+   maxZoom: 19,*/
+    formatData: "webp",
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>' }
 ).addTo(map);
 
