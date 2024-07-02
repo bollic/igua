@@ -59,9 +59,9 @@ const renderPosts = async (term) => {
       <div class="sidebar-item">
         <h5>${post.title}</h5>
         <div class="flex-shrink-0 h-20 w-20">
-          <img src="${post.profile}" class="h-20 w-20 rounded-full" alt="">
+          <img src="${post.profile}" class="h-15 w-15 rounded-full" alt="">
         </div>
-        <img class="circular_image" src='#' alt="${post.category}">
+        
         <small>${post.body.slice(0, 30)}...</small>
         <div class="text-sm text-gray-500">
           ${post.id} <a href="details.html?id=${post.id}">Read more</a>
