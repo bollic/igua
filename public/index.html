@@ -2,70 +2,67 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, 
-  initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<!-- leaflet -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-
-        xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" ></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <!-- Preload critical CSS and JS -->
+  <link rel="preload" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" as="style">
+  <link rel="preload" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" as="script">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="anonymous">
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+  
+  <!-- Local CSS -->
   <link rel="stylesheet" href="styles.css">
-
-<title>Flying messages..</title>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-
-<script defer async src="https://cdn.tailwindcss.com"></script>
-
+  
+  <!-- Title -->
+  <title>Flying messages..</title>
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
   
   <div class="head">  
-      <div class="button">
-        <button id="get-marker">
-        VISUALISER LA ZONE
-         </button>
-       </div>   
-       <div class="button">
-        <button id="get-polyline">
-        VISUALISER LA LINE
-         </button>
-       </div>
-     <div class="button">    
-        <button id="get-moyen">
-    LE MORAL est MOYEN --
-        </button>
-     </div>
-
- <div class="button"><button id="get-content">
-  LE MORAL est BON
-</button>
- </div>
- <div class="button"><button id="get-pascontent">
-  LE MORAL est BAS
-</button>
- </div>
+    <div class="button">
+      <button id="get-marker">VISUALISER LA ZONE</button>
+    </div>   
+    <div class="button">
+      <button id="get-polyline">VISUALISER LA LINE</button>
+    </div>
+    <div class="button">    
+      <button id="get-moyen">LE MORAL est MOYEN</button>
+    </div>
+    <div class="button">
+      <button id="get-content">LE MORAL est BON</button>
+    </div>
+    <div class="button">
+      <button id="get-pascontent">LE MORAL est BAS</button>
+    </div>
     <div class="button">
       <a href="create.html">Ajouter un message</a>
     </div> 
-
-</div>
-  
-    <form class="search"><input type="text" placeholder="search term" name="term">
-    </form>
-<div class="head"> 
-   <div ></div> 
-   <div ></div>
-   <div ></div>
-</div>
-  <div class="head" id="map"> </div>
-     <div class="filter">
   </div>
- <div class="sidebar">     
-      <div class="sidebar-item"> <nav></nav>
-      <!-- inject blogs here from js -->  
-    	</div> 
-</div>
-  <script src="js/index.js"></script>
+  
+  <form class="search">
+    <input type="text" placeholder="search term" name="term">
+  </form>
+
+  <div class="head" id="map"></div>
+  <div class="filter"></div>
+  <div class="sidebar">
+    <div class="sidebar-item">
+      <nav></nav>
+      <!-- inject blogs here from js -->
+    </div>
+  </div>
+  
+  <!-- Leaflet JS -->
+  <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2RzFzwW7BlN1bkF9Q7p6bSXkXoMzwlCZY2vF2F6lH5CHMJ5sEfSxw1c9w8nHAfFTIiA2gS4Yg==" crossorigin="anonymous"></script>
+  
+  <!-- Local JS -->
+  <script defer src="js/index.js"></script>
 </body>
 </html>
