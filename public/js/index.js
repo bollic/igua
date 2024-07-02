@@ -61,7 +61,7 @@ const renderPosts = async (term) => {
         <div class="flex-shrink-0 h-20 w-20">
           <img src="${post.profile}" class="h-20 w-20 rounded-full" alt="">
         </div>
-        <img class="circular_image" src='https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png' alt="${post.category}">
+        <img class="circular_image" src='#' alt="${post.category}">
         <small>${post.body.slice(0, 30)}...</small>
         <div class="text-sm text-gray-500">
           ${post.id} <a href="details.html?id=${post.id}">Read more</a>
