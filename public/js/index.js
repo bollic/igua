@@ -43,7 +43,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",  {
 
 // Fonction pour afficher les publications et les ajouter sur la carte
 const renderPosts = async (term) => {
-  let uri = 'https://igua.onrender.com/posts?_sort=date&_order=asc';
+  let uri = 'https://igua.onrender.com/posts?_sort=date&_order=desc';
   if (term) {
     uri += `&q=${term}`;
   }
