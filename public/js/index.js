@@ -61,7 +61,7 @@ const renderPosts = async (term) => {
         <div class="flex-shrink-0 h-20 w-20">
           <img src="${post.profile}" class="h-15 w-15 rounded-full" alt="">
         </div>
-        
+         <small>${post.date}</small>
         <small>${post.body.slice(0, 30)}...</small>
         <div class="text-sm text-gray-500">
           ${post.id} <a href="details.html?id=${post.id}">Read more</a>
